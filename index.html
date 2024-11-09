@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Coffe Shop Website">
+  <meta name="CCBot" content="nofollow">
+  <title>Ocean</title>
+
+  <!-- Sweet Alert -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Logo Website -->
+  <link rel="icon" href="img/logo-coffe.svg">
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <nav class="navbar">
+    <a href="#home"  rel="noreferrer noopener"
+      class="navbar-logo primary-gradient">Ocean<span>Breewc</span> </a>
+
+    <div class="navbar-nav">
+      <a href="#home" class="primary-gradient-hover">Home</a>
+      <a href="#about" class="primary-gradient-hover">Tentang Kami</a>
+      <a href="#heading_outlet" class="primary-gradient-hover">Maps</a>
+      <a href="#products" class="primary-gradient-hover">Produk</a>
+      <a href="#kontak" class="primary-gradient-hover">Kontak</a>
+    </div>
+
+    <div class="navbar-extra">
+      <a id="search-button"><i class="fa-solid fa-magnifying-glass icon"></i></a>
+      <a id="shopping-bag-button">
+        <div id="shopping-bag-count" class="hidden">
+          0
+        </div>
+        <i class="fa-solid fa-cart-shopping icon shopping-bag-icon"></i>
+      </a>
+      <a id="hamburger-menu">
+        <i class="fa-solid fa-bars icon"></i>
+      </a>
+    </div>
+
+    <!-- Search From Start -->
+    <div class="search-form" id="search-results">
+      <input type="search" id="search-box" placeholder="Cari..." oninput="search()">
+      <label for="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </label>
+    </div>
+    <!-- Search From End -->
+
+    <!-- Shopping Bag Start -->
+    <div class="shopping-bag">
+
+      <div class="cart-item hidden" id="cart-item-template">
+        <img src="img/product/product-1.webp" alt="product-1" loading="lazy">
+        <div class="item-detail">
+          <div class="item-name">
+            <h3>Product 1</h3>
+            <button class="fa-regular fa-trash-can remove-item"></button>
+          </div>
+          <div class="prices-quantity">
+            <div class="item-price">IDR 30K</div>
+            <div class="price-calc">
+              X
+              <button class="btn-qty qty-sub">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <input type="number" pattern="^[0-9]" maxlength="2" value="1" class="item-quantity">
+              <button class="btn-qty qty-add">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              =
+            </div>
+            <div class="item-price-total">Rp 30.000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="shopping-bag-empty">
+        <p>Keranjang Kosong</p>
+      </div>
+
+      <div class="shopping-bag-inner">
+      </div>
+
+      <div class="shopping-bag-footer">
+        <div class="totalsP">
+          Total Harga :
+          <span id="current-items-total">Rp 23.456</span>
+        </div>
+        <hr>
+        <form action="#" id="co-form">
+          <h4>Customer Detail</h4>
+        
+          <!-- Nama -->
+          <label for="names">
+            <span>Nama</span>
+            <input type="text" name="names" id="names" placeholder="Budi" minlength="5" maxlength="30" required
+              pattern="[A-Za-z ]+" title="Masukkan nama yang valid (huruf alfabet dan spasi)" spellcheck="false">
+          </label>
+        
+          <!-- Alamat -->
+          <label for="alamat">
+            <span>Alamat</span>
+            <input type="text" id="alamat" placeholder="Alamat Pengiriman" required />
+          </label>
+          
+        
+          <!-- Nomor HP -->
+          <label for="phone">
+            <span>Nomor HP</span>
+            <input type="tel" name="phone" id="phone" placeholder="08xxxxxxxxx" required pattern="\d{10,15}"
+              title="Masukkan nomor HP yang valid" spellcheck="false">
+          </label>
+        
+          <!-- Tombol Checkout -->
+          <button class="co-btn disabled" id="co-btn" value="checkout" name="checkout" disabled>
+            Check Out
+          </button>
+        </form>
+        
+    <!-- Shopping Bag End -->
+
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Hero Section Start -->
+  <section class="hero" id="home">
+    <main class="content">
+      <h1>Yuk, nikmati lezatnya sepotong <span class="primary-gradient">roti</span></h1>
+      <p>
+        Rasakan kelembutan roti pilihan kami, <br>
+        sambil meresapi kehangatan suasana yang memanjakan
+      </p>
+      <a href="#products" class="cta btn"><b><i>Pesan Sekarang</i></b></a>
+    </main>
+
+  <!-- music -->
+
+  <div class="card">
+    <div class="bg uwu"></div>
+    <div class="bg"></div>
+    <div class="audio-player">
+      <div class="bg"></div> <!-- Elemen untuk efek warna-warni -->
+      <div class="album-cover"></div>
+      <div class="player-controls">
+        <div class="song-info">
+          <div class="song-title">불장난 (PLAYING WITH FIRE) M-V</div>
+          <p class="artist">BLACKPINK</p>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="controls-and-time">
+          <div class="buttons">
+            <button class="play-btn" onclick="playAudio()">
+              <svg viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white">
+                <path fill="white" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"></path>
+              </svg>
+            </button>
+            <button class="pause-btn" onclick="pauseAudio()">
+              <svg viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white">
+                <path fill="white" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"></path>
+              </svg>
+            </button>
+          </div>
+          <p id="current-time">0:00</p>
+        </div>
+      </div>
+    </div>
+          
+    </div>
+  </div>
+  
+  
+  <!-- Audio element -->
+  <audio id="audio-player" autoplay loop>
+    <source src="asset/song/BLACKPINK - '불장난 (PLAYING WITH FIRE)' M-V.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  
+
+
+  <!-- end music -->
+  </section>
+  <!-- Hero Section End -->
+
+  <!-- About Section Start -->
+  <section id="about" class="about">
+    <h2><span class="primary-gradient">Tentang Kami</span></h2>
+    <section id="aboutus">
+      <div class="layar-dalam">
+        <p class="ringkasan">
+          OceanBreewc, pilihan roti terbaik untukmu!
+        </p>
+        <div class="konten-isi">
+          <p>
+            OceanBreewc adalah toko roti yang berdiri sejak tahun 2020, 
+            dengan outlet pertama di Semarang. Kami hadir dengan roti-roti berkualitas
+            yang dibuat dengan cinta dan bahan-bahan terbaik. Setiap gigitan 
+            akan membawa kenikmatan roti yang lembut dan nikmat!
+        </div>
+      </div>
+    </section>
+    <div class="row">
+      <section class="abuabu" id="support">
+        <div class="layar-dalam support">
+          <div>
+            <img src="asset/jam.png" />
+            <h6>Jam Operasional</h6>
+            <p>
+              Kami buka setiap hari pada jam berikut:
+              <br> Senin - Jumat : 07.00 - 20.00 <br>
+              Sabtu - minggu : 08.00 - 18.00 <br>
+            </p>
+          </div>
+          <div>
+            <img src="asset/roti.png" />
+            <h6>Varian Roti Terlengkap</h6>
+            <p>
+              Kami menawarkan berbagai pilihan roti, mulai dari roti manis, roti tawar,
+              hingga roti isi dengan topping favorit Anda.
+            </p>
+          </div>
+          <div>
+            <img src="asset/toko.png" />
+            <h6>Outlet Kami</h6>
+            <p>
+              Outlet 1: Jalan Taman Bojana No.16, Kudus <br>
+              Outlet 2: Jl. Raya Titan Asri No.34, Kota Malang<br>
+              Outlet 3: Jl. Mutiara Kav 38 No.34, Malang
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+  <section id="gallery">
+    <div><img src="asset/foto1.jpg" /></div>
+    <div><img src="asset/foto2.jpg" /></div>
+    <div><img src="asset/foto3.jpg" /></div>
+    <div><img src="asset/foto4.jpg" /></div>
+    <div><img src="asset/foto5.jpg" /></div>
+    <div><img src="asset/foto6.jpg" /></div>
+    <div><img src="asset/foto7.jpg" /></div>
+    <div><img src="asset/foto8.jpg" /></div>
+  </section>
+
+  
+  <div id="heading_outlet"></div>
+  <section class="outlet" id="outlet">
+    <h2><span class="primary-gradient">Maps Outlet</span></h2>
+    <p>Berikut adalah maps dari outlet-outlet kami!</p>
+
+    <div class="container-maps">
+        <!-- Outlet 1 -->
+        <div class="row">
+            <h2><span>Outlet 1</span></h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.42393401771!2d110.84235530652963!3d-6.806817563122276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70c4c528a21a77%3A0xcbb006a30f51dcd2!2sJoy%20Cake%20%26%20Bakery!5e0!3m2!1sid!2sid!4v1731075046396!5m2!1sid!2sid" 
+            allowfullscreen="" title="Peta Lokasi Outlet 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+            <!-- Kontak Admin Outlet 1 -->
+            <div class="contact-admin">
+                <h2>Kontak Admin Outlet 1</h2>
+                <p>Telepon: +6285256419818</p>
+                <p>Email: oceanscorpion7@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Outlet 2 -->
+        <div class="row">
+            <h2><span>Outlet 2</span></h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1975.70090932735!2d112.65275714476962!3d-7.957361089942129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6292966b8afe3%3A0x3c1627194930513c!2sJoy%20cake%20n%20bakery!5e0!3m2!1sid!2sid!4v1731075133908!5m2!1sid!2sid"
+            allowfullscreen="" title="Peta Lokasi Outlet 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+            <!-- Kontak Admin Outlet 2 -->
+            <div class="contact-admin">
+                <h2>Kontak Admin Outlet 2</h2>
+                <p>Telepon: +6285134088127</p>
+                <p>Email: oceanalfatih17@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Outlet 3 -->
+        <div class="row">
+            <h2><span>Outlet 3</span></h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1975.5928237127584!2d112.59453063113182!3d-7.979754038931523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7883090f85126d%3A0x20f367831a8c56d0!2sJoy%20bakery%20%26%20Group!5e0!3m2!1sid!2sid!4v1731075230988!5m2!1sid!2sid" 
+            allowfullscreen="" title="Peta Lokasi Outlet 2" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+            <!-- Kontak Admin Outlet 3 -->
+            <div class="contact-admin">
+                <h2>Kontak Admin Outlet 3</h2>
+                <p>Telepon: +625255139577</p>
+                <p>Email: 202251264@std.umk.ac.id</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  <!-- About Section End -->
+
+
+   <!-- Product Section Start -->
+   <section class="products" id="products">
+    <h2><span class="primary-gradient">Produk Kami</span></h2>
+
+    <div class="product-card hidden" id="product-card-template">
+      <div class="product-card-inner">
+        <div class="product-icons">
+          <button class="shopping-bag-btn" data-product="biji_toraja" aria-label="Add to Shopping Bag">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button class="item-detail-button" data-product="biji_toraja" aria-label="View Item Detail">
+            <i class="fa-solid fa-info"></i>
+          </button>
+        </div>
+        <div class="product-image">
+          <img src="asset/ultah.png" alt="product-1" loading="lazy">
+        </div>
+        <div class="products-content">
+          <h3>Kue Ulang Tahun</h3>
+          <div class="product-stars">
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+          </div>
+          <div class="product-price" data-diskon="false">
+            <span class="product-price-discount">IDR 1500K</span>
+            <span class="product-price-base">IDR 170K</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="product-list">
+    </div>
+  </section>
+
+  <!-- Product Section End -->
+
+  <!-- Contact Section Start -->
+
+  <!-- Contact Section End -->
+
+  <!-- Footer Start -->
+   <section id="kontak">
+
+   </section>
+  <footer>
+    <div class="wrapper">
+      <ul>
+        <li class="item-social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </li>
+        <li class="item-social">
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </li>
+        <li class="item-social">
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="item-social">
+          <a href="https://www.tiktok.com/id-ID/" target="_blank" rel="noreferrer noopener" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#products">Produk</a>
+    </div>
+
+    <div class="credit">
+      <p>Created by <a href="https://github.com/Zevhys" target="_blank" rel="noreferrer noopener">Ocean Arif Raja</a> |
+        Copyright &copy; 2024</p>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+  <!-- Modal Box Item Detail Start -->
+  <div class="modal" id="item-detail-modal">
+    <div class="modal-container">
+      <button class="close-icon">
+        <i class="fa-solid fa-circle-xmark"></i>
+      </button>
+      <div class="modal-content">
+        <div class="product-content">
+          <img src="img/product/product-1.webp" alt="product-1" id="product-img" loading="lazy">
+          <h3 id="product-name">Product 1</h3>
+          <p id="product-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque incidunt repellendus ad aperiam <br>saepe
+            ipsam
+            voluptate placeat in ullam, tenetur eligendi, voluptates porro inventore voluptatem.
+          </p>
+          <div class="product-stars" id="product-rating">
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+            <i class="fa-solid fa-star star-full"></i>
+          </div>
+          <div class="product-price" id="product-prices" data-diskon="true">
+            <span id="product-price-discount" class="product-price-discount">IDR 30K</span>
+            <span id="product-price" class="product-price-base">IDR 55K</span>
+          </div>
+          <button class="add-to-cart btn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span><b>Masukkan Keranjang</b></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Box Item Detail End -->
+
+  <!-- Sweet Alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.3/dist/sweetalert2.all.min.js"></script>
+
+  <!-- JavaScript -->
+  <script src="daftar_kopi.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
