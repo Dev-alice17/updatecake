@@ -126,6 +126,59 @@ body {
   }
 }
 
+/* video player */
+/* Atur ukuran dan posisi video */
+/* Atur tampilan section video */
+#video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Tinggi sesuai layar penuh */
+  margin: 0; /* Hilangkan margin default */
+  padding: 20px; /* Beri sedikit padding */
+  box-sizing: border-box;
+}
+
+/* Styling judul */
+#video h2 {
+  font-size: 24px;
+  margin-bottom: 20px; /* Jarak antara judul dan video */
+  text-align: center;
+  color: #333;
+}
+
+/* Kontainer video */
+.video1 {
+  width: 60%; /* Ukuran video lebih kecil dari layar penuh */
+  max-width: 800px; /* Batas maksimal lebar video */
+  margin: 0 auto; /* Pusatkan kontainer */
+  border: 2px solid #ccc; /* Tambahkan border */
+  border-radius: 10px; /* Sudut border lebih halus */
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+}
+
+/* Video */
+.video1 video {
+  width: 100%; /* Video menyesuaikan kontainer */
+  height: auto; /* Proporsi tetap terjaga */
+}
+.video1:hover {
+  border-color: #ff8c00; /* Warna berubah saat hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih tebal */
+}
+
+/* Media query untuk layar lebih kecil */
+@media (max-width: 768px) {
+  .video1 {
+      width: 90%; /* Perbesar untuk layar kecil */
+  }
+  #video h2 {
+      font-size: 20px; /* Sesuaikan ukuran teks */
+  }
+}
+
 
 /* Audio player */
 .audio-player {
@@ -792,6 +845,7 @@ hr {
 }
 
 .about h2,
+.video h2,
 .menu h2,
 .products h2,
 .outlet h2,
